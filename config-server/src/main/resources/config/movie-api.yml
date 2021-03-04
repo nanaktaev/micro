@@ -1,0 +1,26 @@
+server:
+  port: 8082
+  error:
+    include-stacktrace: never
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: movie-api
+  application:
+    name: movie-api
+
+logging:
+  level:
+    org.dmitri: DEBUG
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    hostname: localhost

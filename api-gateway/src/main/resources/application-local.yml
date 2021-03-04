@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    hostname: localhost
+
+zuul:
+  routes:
+    user:
+      path: /user/**
+      url: http://localhost:8081/user
+    movie:
+      path: /movie/**
+      url: http://localhost:8082/movie
+    review:
+      path: /review/**
+      url: http://localhost:8083/review
